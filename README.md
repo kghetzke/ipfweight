@@ -5,6 +5,7 @@ This package provides an implementation of an iterative proportional fitting alg
 ## Coming soon to PyPi
 
 I am planning to publish this as my first public package available on PyPi. For now it can be installed directly through the github url, running the following command:
+
 `python -m pip install ipfweight@git+https://github.com/kghetzke/ipfweight.git`
 
 ## Quick Start
