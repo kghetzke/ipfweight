@@ -4,7 +4,20 @@ import logging
 
 
 class WeightingSchema():
-    def __init__(self, data: pd.DataFrame, **targets):
+    def __init__(
+            self,
+            data: pd.DataFrame,
+            **targets):
+        """
+        Initialize the WeightingSchema object with the data and target schema.
+
+        Parameters:
+            data (pd.DataFrame): Survey sample data containing all fields to be used in calculating weights.
+            **targets: Each keyword argument should directly match a column in the data, 
+                        and the values should be dictionaries where the keys are the unique 
+                        values in the column and the values are the desired percentage of 
+                        the sample that should have that value. The values should sum to 100 for each column.        
+        """
         self.data = data.copy()
         self.targets = targets
         self.weights = None
@@ -41,7 +54,24 @@ class WeightingSchema():
             return False
         
 
-    def fit(self, max_iter=500, tol=0.1, max=None, min=None, allow_missings=False):
+    def fit(
+            self,
+            max_iter=500,
+            tol=0.1,
+            max=None,
+            min=None,
+            allow_missings=False):
+
+        """
+        Estimate weights based on the targets in the schema.
+
+        Parameters:
+            max_iter (int), default=500: Maximum number of iterations to run before stopping.
+            tol (float), default=0.1: Tolerance criteria for stopping the iterative proportional fitting loop.
+            max (float), default=None: Maximum possible value to assign to single observation.
+            min (float), default=None: Minimum possible value to assign to single observation.
+            allow_missings (bool), default=False: If True, missing values in target columns will be allowed and assigned a weight=1 as appropriate.
+        """
 
         # Don't proceed if we don't want to allow missing values in target columns
         if allow_missings==False and self.targets_na==True:
