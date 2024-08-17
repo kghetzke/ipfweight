@@ -2,6 +2,11 @@
 
 This package provides an implementation of an iterative proportional fitting algorithm for weighting survey samples to known population margins. The version of the algorithm in this package closely follows the version written for Stata users by Michael Bergmann, 2011[^1].
 
+## Coming soon to PyPi
+
+I am planning to publish this as my first public package available on PyPi. For now it can be installed directly through the github url, running the following command:
+`python -m pip install ipfweight@git+https://github.com/kghetzke/ipfweight.git`
+
 ## Quick Start
 
 The following code can be used as a quick-start tutorial for how to estimate weights using `ipfweight`.
