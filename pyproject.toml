@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "ipfweight"
+version = "0.0.1"
+authors = [{ name="Karl Hetzke" }]
+description = "Python implementation of iterative proportional fitting for assigning weights to survey samples."
+readme = "README.md"
+license = { file="LICENSE" }
+# requires-python = "==3.10.13"
+# classifiers = ["Programming Language :: Python :: 3","Operating System :: OS Independent"]
+dependencies = [
+    "pandas",
+]
